@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug
 
 # The main recursive "all" target.
 all: CMakeFiles/arduino_clock.dir/all
+all: CMakeFiles/uno_font6x8.dir/all
 all: CMakeFiles/uno_CORE.dir/all
 
 .PHONY : all
@@ -62,6 +63,7 @@ all: CMakeFiles/uno_CORE.dir/all
 clean: CMakeFiles/arduino_clock-upload.dir/clean
 clean: CMakeFiles/arduino_clock-size.dir/clean
 clean: CMakeFiles/arduino_clock.dir/clean
+clean: CMakeFiles/uno_font6x8.dir/clean
 clean: CMakeFiles/arduino_clock-burn.dir/clean
 clean: CMakeFiles/upload.dir/clean
 clean: CMakeFiles/uno_CORE.dir/clean
@@ -85,7 +87,7 @@ CMakeFiles/arduino_clock-upload.dir/all: CMakeFiles/arduino_clock.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/arduino_clock-upload.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 30
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/arduino_clock-upload.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/arduino_clock-upload.dir/rule
@@ -112,7 +114,7 @@ CMakeFiles/arduino_clock-size.dir/all: CMakeFiles/arduino_clock.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/arduino_clock-size.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 31
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/arduino_clock-size.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/arduino_clock-size.dir/rule
@@ -131,6 +133,7 @@ CMakeFiles/arduino_clock-size.dir/clean:
 # Target rules for target CMakeFiles/arduino_clock.dir
 
 # All Build rule for target.
+CMakeFiles/arduino_clock.dir/all: CMakeFiles/uno_font6x8.dir/all
 CMakeFiles/arduino_clock.dir/all: CMakeFiles/uno_CORE.dir/all
 	$(MAKE) -f CMakeFiles/arduino_clock.dir/build.make CMakeFiles/arduino_clock.dir/depend
 	$(MAKE) -f CMakeFiles/arduino_clock.dir/build.make CMakeFiles/arduino_clock.dir/build
@@ -139,7 +142,7 @@ CMakeFiles/arduino_clock.dir/all: CMakeFiles/uno_CORE.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/arduino_clock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 30
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/arduino_clock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/arduino_clock.dir/rule
@@ -155,6 +158,33 @@ CMakeFiles/arduino_clock.dir/clean:
 .PHONY : CMakeFiles/arduino_clock.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/uno_font6x8.dir
+
+# All Build rule for target.
+CMakeFiles/uno_font6x8.dir/all: CMakeFiles/uno_CORE.dir/all
+	$(MAKE) -f CMakeFiles/uno_font6x8.dir/build.make CMakeFiles/uno_font6x8.dir/depend
+	$(MAKE) -f CMakeFiles/uno_font6x8.dir/build.make CMakeFiles/uno_font6x8.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles --progress-num=30,31 "Built target uno_font6x8"
+.PHONY : CMakeFiles/uno_font6x8.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/uno_font6x8.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 27
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/uno_font6x8.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/uno_font6x8.dir/rule
+
+# Convenience name for target.
+uno_font6x8: CMakeFiles/uno_font6x8.dir/rule
+
+.PHONY : uno_font6x8
+
+# clean rule for target.
+CMakeFiles/uno_font6x8.dir/clean:
+	$(MAKE) -f CMakeFiles/uno_font6x8.dir/build.make CMakeFiles/uno_font6x8.dir/clean
+.PHONY : CMakeFiles/uno_font6x8.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/arduino_clock-burn.dir
 
 # All Build rule for target.
@@ -166,7 +196,7 @@ CMakeFiles/arduino_clock-burn.dir/all: CMakeFiles/arduino_clock.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/arduino_clock-burn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 30
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/arduino_clock-burn.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/arduino_clock-burn.dir/rule
@@ -193,7 +223,7 @@ CMakeFiles/upload.dir/all: CMakeFiles/arduino_clock-upload.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/upload.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 30
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/upload.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/upload.dir/rule

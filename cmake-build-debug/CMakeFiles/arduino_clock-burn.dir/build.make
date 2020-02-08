@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug
 include CMakeFiles/arduino_clock-burn.dir/progress.make
 
 CMakeFiles/arduino_clock-burn: arduino_clock.elf
-	/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude -C/Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf -cstk500v2 -Pusb -patmega328p -V -Uflash:w:/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/arduino_clock.hex
+	/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude -C/Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf -cstk500v2 -Pusb -patmega328p -v -Uflash:w:/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/arduino_clock.hex
 
 arduino_clock-burn: CMakeFiles/arduino_clock-burn
 arduino_clock-burn: CMakeFiles/arduino_clock-burn.dir/build.make

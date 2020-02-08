@@ -150,6 +150,19 @@ arduino_clock/fast:
 .PHONY : arduino_clock/fast
 
 #=============================================================================
+# Target rules for targets named uno_font6x8
+
+# Build rule for target.
+uno_font6x8: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uno_font6x8
+.PHONY : uno_font6x8
+
+# fast build rule for target.
+uno_font6x8/fast:
+	$(MAKE) -f CMakeFiles/uno_font6x8.dir/build.make CMakeFiles/uno_font6x8.dir/build
+.PHONY : uno_font6x8/fast
+
+#=============================================================================
 # Target rules for targets named arduino_clock-burn
 
 # Build rule for target.
@@ -863,6 +876,33 @@ arduino_clock_arduino_clock.ino.cpp.s:
 	$(MAKE) -f CMakeFiles/arduino_clock.dir/build.make CMakeFiles/arduino_clock.dir/arduino_clock_arduino_clock.ino.cpp.s
 .PHONY : arduino_clock_arduino_clock.ino.cpp.s
 
+font6x8/font6x8.obj: font6x8/font6x8.cpp.obj
+
+.PHONY : font6x8/font6x8.obj
+
+# target to build an object file
+font6x8/font6x8.cpp.obj:
+	$(MAKE) -f CMakeFiles/uno_font6x8.dir/build.make CMakeFiles/uno_font6x8.dir/font6x8/font6x8.cpp.obj
+.PHONY : font6x8/font6x8.cpp.obj
+
+font6x8/font6x8.i: font6x8/font6x8.cpp.i
+
+.PHONY : font6x8/font6x8.i
+
+# target to preprocess a source file
+font6x8/font6x8.cpp.i:
+	$(MAKE) -f CMakeFiles/uno_font6x8.dir/build.make CMakeFiles/uno_font6x8.dir/font6x8/font6x8.cpp.i
+.PHONY : font6x8/font6x8.cpp.i
+
+font6x8/font6x8.s: font6x8/font6x8.cpp.s
+
+.PHONY : font6x8/font6x8.s
+
+# target to generate assembly for a file
+font6x8/font6x8.cpp.s:
+	$(MAKE) -f CMakeFiles/uno_font6x8.dir/build.make CMakeFiles/uno_font6x8.dir/font6x8/font6x8.cpp.s
+.PHONY : font6x8/font6x8.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -873,6 +913,7 @@ help:
 	@echo "... arduino_clock-upload"
 	@echo "... arduino_clock-size"
 	@echo "... arduino_clock"
+	@echo "... uno_font6x8"
 	@echo "... rebuild_cache"
 	@echo "... arduino_clock-burn"
 	@echo "... upload"
@@ -952,6 +993,9 @@ help:
 	@echo "... arduino_clock_arduino_clock.ino.obj"
 	@echo "... arduino_clock_arduino_clock.ino.i"
 	@echo "... arduino_clock_arduino_clock.ino.s"
+	@echo "... font6x8/font6x8.obj"
+	@echo "... font6x8/font6x8.i"
+	@echo "... font6x8/font6x8.s"
 .PHONY : help
 
 

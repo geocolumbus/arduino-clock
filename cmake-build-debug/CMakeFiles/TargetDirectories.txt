@@ -2,6 +2,7 @@
 /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/arduino_clock-upload.dir
 /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/arduino_clock-size.dir
 /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/arduino_clock.dir
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/uno_font6x8.dir
 /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/arduino_clock-burn.dir
 /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/upload.dir

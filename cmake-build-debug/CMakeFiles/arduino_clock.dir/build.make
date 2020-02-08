@@ -83,6 +83,7 @@ arduino_clock_EXTERNAL_OBJECTS =
 
 arduino_clock.elf: CMakeFiles/arduino_clock.dir/arduino_clock_arduino_clock.ino.cpp.obj
 arduino_clock.elf: CMakeFiles/arduino_clock.dir/build.make
+arduino_clock.elf: libuno_font6x8.a
 arduino_clock.elf: libuno_CORE.a
 arduino_clock.elf: CMakeFiles/arduino_clock.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable arduino_clock.elf"

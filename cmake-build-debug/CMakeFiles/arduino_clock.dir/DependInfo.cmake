@@ -10,10 +10,14 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../font6x8"
+  "../font6x8/src"
+  "../font6x8/utility"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/uno_font6x8.dir/DependInfo.cmake"
   "/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/uno_CORE.dir/DependInfo.cmake"
   )
 

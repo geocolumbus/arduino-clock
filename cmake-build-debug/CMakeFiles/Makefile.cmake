@@ -50,6 +50,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/arduino_clock-upload.dir/DependInfo.cmake"
   "CMakeFiles/arduino_clock-size.dir/DependInfo.cmake"
   "CMakeFiles/arduino_clock.dir/DependInfo.cmake"
+  "CMakeFiles/uno_font6x8.dir/DependInfo.cmake"
   "CMakeFiles/arduino_clock-burn.dir/DependInfo.cmake"
   "CMakeFiles/upload.dir/DependInfo.cmake"
   "CMakeFiles/uno_CORE.dir/DependInfo.cmake"

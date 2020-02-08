@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug
 include CMakeFiles/arduino_clock-upload.dir/progress.make
 
 CMakeFiles/arduino_clock-upload: arduino_clock.elf
-	/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude -C/Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf -patmega328p -carduino -b9600 -P/dev/cu.usbmodem14201 -D -V -Uflash:w:/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/arduino_clock.hex:i -Ueeprom:w:/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/arduino_clock.eep:i
+	/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avrdude -C/Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf -patmega328p -carduino -b115200 -P/dev/cu.usbmodem14201 -D -v -Uflash:w:/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/arduino_clock.hex:i -Ueeprom:w:/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/arduino_clock.eep:i
 
 arduino_clock-upload: CMakeFiles/arduino_clock-upload
 arduino_clock-upload: CMakeFiles/arduino_clock-upload.dir/build.make

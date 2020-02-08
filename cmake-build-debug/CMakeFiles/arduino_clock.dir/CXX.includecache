@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/arduino_clock_arduino_clock.ino.cpp
+Arduino.h
+-
+font6x8/font6x8.h
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/font6x8/font6x8.h
+Arduino.h
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/Arduino.h
+

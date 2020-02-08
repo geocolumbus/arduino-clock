@@ -271,6 +271,9 @@ arduino_clock_BINARY_DIR:STATIC=/Users/georgecampbell/arduino/arduino-clock/cmak
 //Value Computed by CMake
 arduino_clock_SOURCE_DIR:STATIC=/Users/georgecampbell/arduino/arduino-clock
 
+//Dependencies for the target
+uno_font6x8_LIB_DEPENDS:STATIC=general;uno_CORE;
+
 
 ########################
 # INTERNAL cache entries

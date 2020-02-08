@@ -7,11 +7,11 @@ C_FLAGS = -g -Os -w -ffunction-sections -fdata-sections -MMD -g -Os -w -ffunctio
 
 C_DEFINES = 
 
-C_INCLUDES = 
+C_INCLUDES = -I/Users/georgecampbell/arduino/arduino-clock/font6x8 -I/Users/georgecampbell/arduino/arduino-clock/font6x8/src -I/Users/georgecampbell/arduino/arduino-clock/font6x8/utility 
 
 CXX_FLAGS = -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD    -DF_CPU=16000000L -DARDUINO=108010 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR -mmcu=atmega328p -I"/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino" -I"/Applications/Arduino.app/Contents/Java/libraries" -I"/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/variants/standard" -std=gnu++98
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/Users/georgecampbell/arduino/arduino-clock/font6x8 -I/Users/georgecampbell/arduino/arduino-clock/font6x8/src -I/Users/georgecampbell/arduino/arduino-clock/font6x8/utility 
 

@@ -17,6 +17,9 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../font6x8"
+  "../font6x8/src"
+  "../font6x8/utility"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/CDC.cpp" "/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/uno_CORE.dir/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/CDC.cpp.obj"
@@ -41,6 +44,9 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../font6x8"
+  "../font6x8/src"
+  "../font6x8/utility"
   )
 
 # Targets to which this target links.

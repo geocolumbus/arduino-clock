@@ -1,5 +1,5 @@
 # Hashes of file build rules.
-d062f2408c8200d6786307b79401436a CMakeFiles/arduino_clock-burn
+49a61a2678c84cb2a47ebd28f7d65c24 CMakeFiles/arduino_clock-burn
 b4a35b185d68ab147f5979451be71080 CMakeFiles/arduino_clock-size
-509b5cffad3eb12a192ef45c063e0c5a CMakeFiles/arduino_clock-upload
+fb337854b952bd8346ca0aebae8f5e09 CMakeFiles/arduino_clock-upload
 44bc0ddc6b481318a0aa7470cbad9fda arduino_clock_arduino_clock.ino.cpp
