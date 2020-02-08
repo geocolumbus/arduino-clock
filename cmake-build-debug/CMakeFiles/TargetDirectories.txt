@@ -1,0 +1,8 @@
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/arduino_clock-upload.dir
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/arduino_clock-size.dir
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/arduino_clock.dir
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/arduino_clock-burn.dir
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/upload.dir
+/Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/CMakeFiles/uno_CORE.dir
