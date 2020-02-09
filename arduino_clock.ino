@@ -75,7 +75,8 @@ void drawWord(char *word, int length) {
         int offset = length < 5 ? 4 + i * 7 : i * 7;
 
         // kerning before writing the letter
-        if (word[i] == 'i' || word[i] == '-' || word[i] == 'n' || word[i] == '~') {
+        if (word[i] == 'i' || word[i] == 'l' || word[i] == '-' || word[i] == 'n' || word[i] == '~' || word[i] == 's' ||
+            word[i] == 'I') {
             leftShift = 1;
         }
 
@@ -137,5 +138,25 @@ void loop() {
     updateLEDDisplay();
     //printMemoryBuffer();
     delay(5000);
+    /*
+    drawWord("KISS", 4);
+    updateLEDDisplay();
+    //printMemoryBuffer();
+    delay(3000);
 
+    drawWord("Rocks", 5);
+    updateLEDDisplay();
+    //printMemoryBuffer();
+    delay(3000);
+
+    drawWord("Digby", 5);
+    updateLEDDisplay();
+    //printMemoryBuffer();
+    delay(3000);
+
+    drawWord("Rules", 5);
+    updateLEDDisplay();
+    //printMemoryBuffer();
+    delay(3000);
+    */
 }
