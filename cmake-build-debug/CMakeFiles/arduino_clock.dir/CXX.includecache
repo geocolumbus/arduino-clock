@@ -11,6 +11,8 @@ Arduino.h
 -
 font6x8/font6x8.h
 /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/font6x8/font6x8.h
+string.h
+-
 Arduino.h
 /Users/georgecampbell/arduino/arduino-clock/cmake-build-debug/Arduino.h
 
