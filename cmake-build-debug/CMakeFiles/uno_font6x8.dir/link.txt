@@ -1,2 +1,0 @@
-/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-ar qc libuno_font6x8.a  CMakeFiles/uno_font6x8.dir/font6x8/font6x8.cpp.obj
-/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-ranlib libuno_font6x8.a

@@ -6,19 +6,20 @@ void setup() {
     Serial.begin(9600);
 }
 
-void drawCharacterLine(unsigned char lineValue, int row, int colOffset) {
-    char line[14] = "";
-    char buffer[32];
-    unsigned char a = lineValue;
+unsigned int screenBufferLeft[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+unsigned int screenBufferRight[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+
+void drawCharacterLine(unsigned char rowBitPattern, int row, int colOffset) {
+    unsigned char bitPattern = rowBitPattern;
     for (int col = 0; col < 6; col++) {
-        if ((a & 64) > 0) {
-            strcat(line, "* "); // set(row,col+colOffset)
-            sprintf(buffer, "(%d, %2d)", row, col + colOffset);
-            Serial.println(buffer);
-        } else {
-            strcat(line, "  ");
+        if ((bitPattern & 64) > 0) {
+            if (col + colOffset < 16) {
+                screenBufferLeft[row] = (1 << (col + colOffset)) | screenBufferLeft[row];
+            } else if (col + colOffset < 32) {
+                screenBufferRight[row] = (1 << (col + colOffset - 16)) | screenBufferRight[row];
+            }
         }
-        a = a << 1;
+        bitPattern = bitPattern << 1;
     }
 }
 
@@ -28,13 +29,52 @@ void drawCharacter(int ascii, int colOffset) {
     }
 }
 
+void clearScreenBuffer() {
+    for (int row = 0; row < 8; row++) {
+        screenBufferLeft[row] = 0;
+        screenBufferRight[row] = 0;
+    }
+}
+
+void printScreenBuffer() {
+    char line[66];
+    for (int row = 0; row < 8; row++) {
+        strcpy(line, "");
+
+        for (int col = 0; col < 16; col++) {
+            if ((screenBufferLeft[row] >> col) & 1) {
+                strcat(line, "* ");
+            } else {
+                strcat(line, "  ");
+            }
+        }
+
+        for (int col = 16; col < 32; col++) {
+            if ((screenBufferRight[row] >> (col - 16)) & 1) {
+                strcat(line, "* ");
+            } else {
+                strcat(line, "  ");
+            }
+        }
+
+        Serial.println(line);
+    }
+}
+
 void drawWord(char *word) {
+    clearScreenBuffer();
+    Serial.println("");
     for (int i = 0; i < 5; i++) {
         drawCharacter((int) word[i], i * 7);
     }
+    printScreenBuffer();
 }
 
 void loop() {
     drawWord("12:34");
-    delay(60000);
+    delay(2000);
+    drawWord("34~F ");
+    delay(2000);
+    drawWord("Rain ");
+    delay(2000);
 }
