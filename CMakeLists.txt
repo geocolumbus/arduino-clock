@@ -24,7 +24,6 @@ set(${PROJECT_NAME}_SKETCH arduino_clock.ino)
 # For this example (libs will contain additional arduino libraries)
 # An Arduino library my_lib will contain files in libs/my_lib/: my_lib.h, my_lib.cpp + any other cpp files
 # link_directories(${CMAKE_CURRENT_SOURCE_DIR}/)
-link_directories(${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_SOURCE_DIR}/font6x8p)
 
 # For nested library sources replace ${LIB_NAME} with library name for each library
 # set(_RECURSE true)

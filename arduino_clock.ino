@@ -1,19 +1,37 @@
 #include <Arduino.h>
 #include "font6x8/font6x8.h"
+#include "LedControl/LedControl.h"
 #include <string.h>
+
+uint8_t DATA_PIN = 12;
+uint8_t CLOCK_PIN = 11;
+uint8_t LOAD_PIN = 10;
+int NUM_DEVICES = 4;
+
+LedControl ledControl = LedControl(DATA_PIN, CLOCK_PIN, LOAD_PIN, NUM_DEVICES);
 
 void setup() {
     Serial.begin(9600);
+
+    pinMode(DATA_PIN, OUTPUT);
+    pinMode(CLOCK_PIN, OUTPUT);
+    pinMode(LOAD_PIN, OUTPUT);
+
+    for (int index = 0; index < ledControl.getDeviceCount(); index++) {
+        ledControl.shutdown(index, false); // at power up is true
+        ledControl.setIntensity(index, 8); // 0 - 16, at power up is 0
+    }
 }
 
-unsigned long screenBuffer[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+unsigned long memoryBuffer[8] = {0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L};
+unsigned long screenBuffer[8] = {0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L};
 
 void drawCharacterLine(unsigned char rowBitPattern, int row, int colOffset) {
     unsigned char bitPattern = rowBitPattern;
     for (int col = 0; col < 6; col++) {
         if ((bitPattern & 64L) > 0) {
             if (col + colOffset < 32) {
-                screenBuffer[row] = (1UL << (col + colOffset)) | screenBuffer[row];
+                memoryBuffer[row] = (1UL << (col + colOffset)) | memoryBuffer[row];
             }
         }
         bitPattern = bitPattern << 1;
@@ -26,19 +44,19 @@ void drawCharacter(int ascii, int colOffset) {
     }
 }
 
-void clearScreenBuffer() {
+void clearMemoryBuffer() {
     for (int row = 0; row < 8; row++) {
-        screenBuffer[row] = 0UL;
+        memoryBuffer[row] = 0UL;
     }
 }
 
-void printScreenBuffer() {
+void printMemoryBuffer() {
     char line[66];
     for (int row = 0; row < 8; row++) {
         strcpy(line, "");
 
         for (int col = 0; col < 32; col++) {
-            if ((screenBuffer[row] >> col) & 1UL) {
+            if ((memoryBuffer[row] >> col) & 1UL) {
                 strcat(line, "* ");
             } else {
                 strcat(line, "  ");
@@ -49,14 +67,14 @@ void printScreenBuffer() {
 }
 
 void drawWord(char *word, int length) {
-    clearScreenBuffer();
+    clearMemoryBuffer();
     Serial.println("");
     int leftShift = 0;
     for (int i = 0; i < length; i++) {
         int offset = length < 5 ? 4 + i * 7 : i * 7;
 
         // kerning before writing the letter
-        if (word[i] == 'i' || word[i] == '-' || word[i]=='n' || word[i]=='~') {
+        if (word[i] == 'i' || word[i] == '-' || word[i] == 'n' || word[i] == '~') {
             leftShift = 1;
         }
 
@@ -71,11 +89,42 @@ void drawWord(char *word, int length) {
             leftShift = 2;
         }
     }
-    printScreenBuffer();
+}
+
+// Pixel based updater
+void updateLEDDisplay() {
+    // Undraw the screenBuffer
+    for (int row = 0; row < 8; row++) {
+        for (int col = 0; col < 32; col++) {
+            if ((screenBuffer[row] >> col) & 1UL) {
+                ledControl.setLed(col >> 3, col, row, false);
+            }
+        }
+    }
+
+    // Copy the memoryBuffer to the screenBuffer
+    for (int row = 0; row < 8; row++) {
+        screenBuffer[row] = memoryBuffer[row];
+    }
+
+    // Draw the screenBuffer
+    for (int row = 0; row < 8; row++) {
+        for (int col = 0; col < 32; col++) {
+            if ((screenBuffer[row] >> col) & 1UL) {
+                ledControl.setLed(col >> 3, col, row, true);
+            }
+        }
+    }
 }
 
 void loop() {
     drawWord("7:51", 4);
+    updateLEDDisplay();
+    printMemoryBuffer();
+    delay(5000);
+
     drawWord("28~F", 4);
-    delay(60000);
+    updateLEDDisplay();
+    printMemoryBuffer();
+    delay(5000);
 }
