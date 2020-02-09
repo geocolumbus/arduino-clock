@@ -7,6 +7,7 @@ uint8_t DATA_PIN = 12;
 uint8_t CLOCK_PIN = 11;
 uint8_t LOAD_PIN = 10;
 int NUM_DEVICES = 4;
+int INTENSITY = 1;
 
 LedControl ledControl = LedControl(DATA_PIN, CLOCK_PIN, LOAD_PIN, NUM_DEVICES);
 
@@ -19,7 +20,7 @@ void setup() {
 
     for (int index = 0; index < ledControl.getDeviceCount(); index++) {
         ledControl.shutdown(index, false); // at power up is true
-        ledControl.setIntensity(index, 8); // 0 - 16, at power up is 0
+        ledControl.setIntensity(index, INTENSITY); // 0 - 16, at power up is 0
     }
 }
 
@@ -97,7 +98,9 @@ void updateLEDDisplay() {
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 32; col++) {
             if ((screenBuffer[row] >> col) & 1UL) {
-                ledControl.setLed(col >> 3, col, row, false);
+                int displayOffset = col >> 3;
+                int displaySelect = 3 - displayOffset;
+                ledControl.setLed(displaySelect, row, col - displayOffset * 8, false);
             }
         }
     }
@@ -111,20 +114,28 @@ void updateLEDDisplay() {
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 32; col++) {
             if ((screenBuffer[row] >> col) & 1UL) {
-                ledControl.setLed(col >> 3, col, row, true);
+                int displayOffset = col >> 3;
+                int displaySelect = 3 - displayOffset;
+                ledControl.setLed(displaySelect, row, col - displayOffset * 8, true);
             }
         }
     }
 }
 
 void loop() {
+    drawWord("Clear", 5);
+    updateLEDDisplay();
+    //printMemoryBuffer();
+    delay(5000);
+
     drawWord("7:51", 4);
     updateLEDDisplay();
-    printMemoryBuffer();
+    //printMemoryBuffer();
     delay(5000);
 
     drawWord("28~F", 4);
     updateLEDDisplay();
-    printMemoryBuffer();
+    //printMemoryBuffer();
     delay(5000);
+
 }
