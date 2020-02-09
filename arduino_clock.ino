@@ -6,17 +6,14 @@ void setup() {
     Serial.begin(9600);
 }
 
-unsigned int screenBufferLeft[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-unsigned int screenBufferRight[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+unsigned long screenBuffer[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
 void drawCharacterLine(unsigned char rowBitPattern, int row, int colOffset) {
     unsigned char bitPattern = rowBitPattern;
     for (int col = 0; col < 6; col++) {
-        if ((bitPattern & 64) > 0) {
-            if (col + colOffset < 16) {
-                screenBufferLeft[row] = (1 << (col + colOffset)) | screenBufferLeft[row];
-            } else if (col + colOffset < 32) {
-                screenBufferRight[row] = (1 << (col + colOffset - 16)) | screenBufferRight[row];
+        if ((bitPattern & 64L) > 0) {
+            if (col + colOffset < 32) {
+                screenBuffer[row] = (1UL << (col + colOffset)) | screenBuffer[row];
             }
         }
         bitPattern = bitPattern << 1;
@@ -31,8 +28,7 @@ void drawCharacter(int ascii, int colOffset) {
 
 void clearScreenBuffer() {
     for (int row = 0; row < 8; row++) {
-        screenBufferLeft[row] = 0;
-        screenBufferRight[row] = 0;
+        screenBuffer[row] = 0UL;
     }
 }
 
@@ -41,40 +37,45 @@ void printScreenBuffer() {
     for (int row = 0; row < 8; row++) {
         strcpy(line, "");
 
-        for (int col = 0; col < 16; col++) {
-            if ((screenBufferLeft[row] >> col) & 1) {
+        for (int col = 0; col < 32; col++) {
+            if ((screenBuffer[row] >> col) & 1UL) {
                 strcat(line, "* ");
             } else {
                 strcat(line, "  ");
             }
         }
-
-        for (int col = 16; col < 32; col++) {
-            if ((screenBufferRight[row] >> (col - 16)) & 1) {
-                strcat(line, "* ");
-            } else {
-                strcat(line, "  ");
-            }
-        }
-
         Serial.println(line);
     }
 }
 
-void drawWord(char *word) {
+void drawWord(char *word, int length) {
     clearScreenBuffer();
     Serial.println("");
-    for (int i = 0; i < 5; i++) {
-        drawCharacter((int) word[i], i * 7);
+    int leftShift = 0;
+    for (int i = 0; i < length; i++) {
+        int offset = length < 5 ? 4 + i * 7 : i * 7;
+
+        // kerning before writing the letter
+        if (word[i] == 'i' || word[i] == '-' || word[i]=='n' || word[i]=='~') {
+            leftShift = 1;
+        }
+
+        // write the letter
+        drawCharacter((int) word[i], offset - leftShift);
+
+        // kerning that affects the next letter
+        if (word[i] == ':') {
+            leftShift = 1;
+        }
+        if (word[i] == 'i') {
+            leftShift = 2;
+        }
     }
     printScreenBuffer();
 }
 
 void loop() {
-    drawWord("12:34");
-    delay(2000);
-    drawWord("34~F ");
-    delay(2000);
-    drawWord("Rain ");
-    delay(2000);
+    drawWord("7:51", 4);
+    drawWord("28~F", 4);
+    delay(60000);
 }
